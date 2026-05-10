@@ -1,6 +1,6 @@
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import SearchFilter,OrderingFilter
-from rest_framework.parsers import MultiPartParser,FormParser
+from rest_framework.parsers import MultiPartParser,FormParser,JSONParser
 from django_filters.rest_framework import DjangoFilterBackend
 from .selectors import get_products
 from .serializers import ProductReadSerializer,ProductWriteSerializer
@@ -11,7 +11,7 @@ from .services import soft_delete_product
 class ProductViewSet(ModelViewSet):
     lookup_field="slug"
     filter_backends=[DjangoFilterBackend,SearchFilter,OrderingFilter]
-    parser_classes=[MultiPartParser,FormParser]
+    parser_classes=[MultiPartParser,FormParser,JSONParser]
     permission_classes=[IsAdminOrReadOnly]
     filterset_class=ProductFilter
     search_fields=[
