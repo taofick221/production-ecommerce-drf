@@ -148,3 +148,14 @@ class ClearCartView(APIView):
         return Response(
             CartSerializer(cart).data
         )
+    
+
+
+
+
+
+
+
+
+
+
