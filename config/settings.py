@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "apps.coupons",
 ]
 AUTH_USER_MODEL = "users.User"
+CELERY_BROKER_URL = "redis://redis:6379/0"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -134,6 +135,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
